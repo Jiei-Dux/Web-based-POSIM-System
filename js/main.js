@@ -1,6 +1,6 @@
-function changeURL(newURL) {
-    window.history.pushState(null, '', newURL);
-}
+// function changeURL(newURL) {
+//     window.history.pushState(null, '', newURL);
+// }
 
 // Loading Animation
 window.addEventListener('load', function() {
