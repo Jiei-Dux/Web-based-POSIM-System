@@ -1,0 +1,146 @@
+body {
+    font-family: monospace, serif;
+}
+
+
+
+
+.Main {
+    background-image: url(../Assets/Background1.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin: 0;
+    overflow-y: scroll;
+}
+
+
+
+
+.logo {
+    position: relative;
+    display: inline-block;
+    margin: 0px 20px 0px 5px;
+}
+
+.logo_tooltip_text {
+    visibility: hidden;
+    width: 120px;
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Tooltip Position */
+    position: absolute;
+    z-index: 1;
+
+    /* Tooltip Fade Out */
+    opacity: 0;
+    transition: opacity 1s, visibility 0s linear 0.3s;
+}
+
+.logo:hover .logo_tooltip_text,
+.navbarLogo_User:hover #tooltipUser,
+.navbarLogo_Logout:hover #tooltipLogout {
+    visibility: visible;
+
+    /* Tooltip Fade In */
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+
+
+
+.header {
+    background-color: transparent;
+    padding: 10px 0;
+}
+
+
+
+
+.divider1 {
+    width: 100%;
+    height: 4px;
+    background-color: #000000;
+    margin-top: 10px;
+}
+
+.divider2 {
+    width: 100%;
+    height: 2px;
+    background-color: #000000;
+}
+
+
+
+
+.nav-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.nav-pills .nav-link {
+    border-radius: 15px;
+    margin-bottom: 5px;
+    background: none;
+    border: 1px solid transparent;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    opacity: 50%;
+    color: #000000;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #ffb7c5;
+    color: #000000;
+    opacity: 100%;
+}
+
+.navbar-vertical {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 15px;
+    padding: 20px 0px;
+    margin-left: 10px;
+}
+
+.navbar-vertical .nav-link {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar-vertical .buttonIcons {
+    display: block;
+    margin: 0 auto 5px;
+    width: 40px;
+    height: 40px;
+}
+
+.navbar-vertical .mt-auto {
+    margin-top: auto;
+}
+
+.horizontal-navbar .nav-link {
+    margin-bottom: 0; /* Remove margin for horizontal alignment */
+    margin-right: 10px; /* Space between the horizontal nav links */
+}
+
+.horizontal-navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center the horizontal nav links */
+}

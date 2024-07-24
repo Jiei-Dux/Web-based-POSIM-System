@@ -1,0 +1,24 @@
+.searchbar {
+    display: flex;
+    align-items: center;
+}
+
+.searchbar input[type="text"] {
+    width: 500px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+}
+
+.searchbar button.searchbar_button {
+    background-image: url(../Assets/MagnifyingGlass.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}

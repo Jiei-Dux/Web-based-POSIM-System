@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="../css/Bootstrap CSS/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/Home.css">
+    <link rel="stylesheet" href="../css/loading.css">
+
+    <!-- JavaScripts -->
+    <script src="../js/Bootstrap JS/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/Home.js"></script>
+
+    <title>Home | Meogeo Sarang Korean Mart</title>
+</head>
+
+<body class="Main">
+    <!-- Loading Animation -->
+    <div id="loading">
+        <div id="loading-center"></div>
+    </div>
+
+    <!-- Main Content - Header -->
+    <header>
+        <div class="logo_and_searchbar d-flex align-items-center p-3">
+            <nav class="navbar navbar-expand-lg logo">
+                <a href="../html/Home.html">
+                    <img src="../Assets/MSKM_Logo.png" width="120" height="120">
+                </a>
+                <span class="logo_tooltip_text" id="tooltip">Homepage</span>
+            </nav>
+            <div class="searchbar ml-3">
+                <input 
+                    type="text" 
+                    placeholder="Search for Products..." 
+                    class="form-control d-inline-block">
+                <button 
+                    type="submit" 
+                    class="searchbar_button btn btn-primary d-inline-block">
+                </button>
+            </div>
+        </div>
+        <div class="divider1"></div> <!-- Divider Line 1 -->
+    </header>
+
+    <!-- Main Content - Body -->
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <!-- Vertical NAVBAR -->
+            <div class="col-lg-2 d-flex align-items-center justify-content-center">
+                <div class="navbar-vertical nav nav-pills nav-container flex-column align-items-center bg-light rounded p-3 square-box">
+                    <a class="nav-link topbutton" href="../html/Home.html">
+                        <img src="../Assets/HOME.png" class="buttonIcons"><strong class="beauty">HOME</strong>
+                    </a>
+                    <a class="nav-link" href="../html/Stocks.html">
+                        <img src="../Assets/STOCKS.png" class="buttonIcons"><strong class="beauty">STOCKS</strong>
+                    </a>
+                    <a class="nav-link active" href="../html/Reports.html">
+                        <img src="../Assets/REPORTS.png" class="buttonIcons"><strong class="beauty">REPORTS</strong>
+                    </a>
+                    <a class="nav-link" href="../html/Settings.html">
+                        <img src="../Assets/SETTINGS.png" class="buttonIcons"><strong class="beauty">SETTINGS</strong>
+                    </a>
+                    <div class="mt-auto">
+                        <a class="nav-link" href="#">Icon 1</a>
+                        <a class="nav-link" href="#">Icon 2</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle Content -->
+            <div class="col-lg-6">
+                <div class="bg-light rounded p-3">
+                    <div class="horizontal-navbar nav nav-pills mb-3">
+                        <a class="nav-link active" href="#">Drinks</a>
+                        <a class="nav-link" href="#">Food</a>
+                        <a class="nav-link" href="#">Wholesale</a>
+                        <a class="nav-link" href="#">Others</a>
+                    </div>
+                    <div class="divider2 mb-3">Snacks-----------</div>
+                    <div class="product-list bg-white rounded p-3">
+                        <!-- Product items here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shopping Cart -->
+            <div class="col-lg-3">
+                <div class="shopping-cart bg-light rounded p-3">
+                    <!-- Selected products here -->
+                    <button class="btn btn-secondary mt-3 w-100">Pay Later</button>
+                    <button class="btn btn-primary mt-3 w-100">Proceed to Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
