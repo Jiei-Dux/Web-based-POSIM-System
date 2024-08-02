@@ -1,10 +1,3 @@
-// function changeURLAndRedirect(newURL, redirectURL) {
-//     window.history.pushState(null, '', newURL);
-//     setTimeout(() => {
-//         window.location.href = redirectURL;
-//     }, 5000); // Adjust the delay as needed
-// }
-
 async function handleLogin(event) {
     event.preventDefault();
     // console.log('handleLogin called...');
@@ -60,7 +53,6 @@ async function handleLogin(event) {
         // console.log('Popup element:', welcomePopup);
         welcomePopup.style.display = 'block';
 
-        // changeURLAndRedirect('/home', 'Home.html');
         setTimeout(() => {
             window.location.href = 'Home.html';
         }, 5000);
