@@ -1,24 +1,3 @@
-// function changeURL(newURL) {
-//     window.history.pushState(null, '', newURL);
-// }
-
-// Loading Animation
-window.addEventListener('load', function() {
-    var loading = document.getElementById('loading');
-    var content = document.getElementById('content');
-
-    var minimumLoadingTime = 2000;
-
-    this.setTimeout(function() {
-        // Hide Loading Animation
-        loading.style.display = 'none';
-    
-        // Show Main Content
-        // content.style.display = 'block';
-    }, minimumLoadingTime);
-});
-
-
 // Tooltip follow Mouse Pointer Animation
 document.addEventListener('mousemove', (event) => {
     const tooltip = document.getElementById('tooltip');

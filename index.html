@@ -1,24 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Redirecting...</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Redirecting... </title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../Assets/MSKM_Tab_Logo-16x16.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../Assets/MSKM_Tab_Logo-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Assets/MSKM_Tab_Logo-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Assets/MSKM_Tab_Logo-32x32.png">
 
-    <script type="text/javascript">
-        // Redirect after the page loads
-        window.onload = function () {
-            window.location.href = "html/Login.html";
-        };
-    </script>
-
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/loading.css">
 </head>
 
 <body>
-    If you are not redirected automatically, follow this <a href="html/Login.html">link</a>.
+    <!-- Loading Animation -->
+    <div id="loading">
+        <!-- <div id="loading-center"></div> -->
+    </div>
+    <div id="content" style="display: none;">
+        If you are not redirected automatically, follow this <a href="html/Login.html">link</a>.
+    </div>
+    <!-- JavaScripts -->
+    <script src="js/loading.js"></script>
 </body>
 
 </html>
