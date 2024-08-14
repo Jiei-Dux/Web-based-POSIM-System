@@ -63,7 +63,7 @@
 }
 
 .product-card {
-    background-color: pink;
+    background-color: #ffb7c5;
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 15px;
@@ -73,7 +73,6 @@
 .product-image {
     width: 80px;
     height: 80px;
-    background-color: #fff;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -88,8 +87,6 @@
     align-items: center;
     margin-bottom: 10px;
     padding: 5px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
 }
 
 .cart-container {
@@ -163,6 +160,57 @@ input[type="number"] {
     align-content: center;
 }
 
+.horizontal-navbar .nav-link:active {
+    background-color: #ffb7c5;
+    color: #fff;
+}
+
+.dropdownBTN {
+    border: none;
+}
+
+.dropdown-item {
+    cursor: pointer;
+}
+
+
+
+
+.product-card {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.product-card .product-image {
+    flex-grow: 1;
+    margin-bottom: 10px;
+    background: none;
+}
+
+.product-image {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto 10px;
+    object-fit: contain;
+}
+
+.product-image img {
+    margin: 10px;
+}
+
+.product-card button {
+    margin-top: auto;
+}
+
+
+
+
 .Cart {
     padding-bottom: 20px;
 }
@@ -207,6 +255,30 @@ input[type="number"] {
     background-color: #888888;
     color: #fff;
 }
+
+
+
+
+.payment-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 300px;
+    display: none;
+}
+
+.payment-popup-content {
+    text-align: center;
+}
+
+
+
 
 .logout-popup {
     position: fixed;

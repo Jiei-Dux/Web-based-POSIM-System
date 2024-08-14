@@ -24,32 +24,12 @@ body {
     margin: 0px 20px 0px 5px;
 }
 
-.logo_tooltip_text {
-    visibility: hidden;
-    width: 120px;
-    background-color: #000000;
-    color: #ffffff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-
-    /* Tooltip Position */
-    position: absolute;
-    z-index: 1;
-
-    /* Tooltip Fade Out */
-    opacity: 0;
-    transition: opacity 1s, visibility 0s linear 0.3s;
+.logo img {
+    transition: transform 0.3s ease;
 }
 
-.logo:hover .logo_tooltip_text,
-.navbarLogo_User:hover #tooltipUser,
-.navbarLogo_Logout:hover #tooltipLogout {
-    visibility: visible;
-
-    /* Tooltip Fade In */
-    opacity: 1;
-    transition: opacity 1s;
+.logo img:hover {
+    transform: scale(1.08);
 }
 
 

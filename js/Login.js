@@ -1,6 +1,6 @@
 async function handleLogin(event) {
     event.preventDefault();
-    // console.log('handleLogin called...');
+
     const employeeId = document.getElementById('employee-id').value;
     const password = document.getElementById('password').value;
 
@@ -12,14 +12,13 @@ async function handleLogin(event) {
         .single();
 
     if (error || !data) {
-        alert('Login failed: Invalid ID or password');
+        showErrorPopup();
         return;
     }
 
     if (data) {
         const now = new Date();
         console.log('Attempting to insert attendance record...');
-
         const { data: maxNumberData, error: maxNumberError } = await supabase
             .from('Employee_Attendance')
             .select('Number')
@@ -32,7 +31,7 @@ async function handleLogin(event) {
             nextNumber = maxNumberData.Number + 1;
         }
 
-        const { data: attendanceData, error: attendanceError } = await supabase
+        const { error: attendanceError } = await supabase
             .from('Employee_Attendance')
             .insert({
                 Number: nextNumber,
@@ -44,22 +43,62 @@ async function handleLogin(event) {
 
         if (attendanceError) {
             console.error('Error recording attendance:', attendanceError);
-            alert('Login successful, but there was an error recording attendance. Please check in manually, sorry for the inconvinience...');
+            alert('Login successful, but there was an error recording attendance. Please check in manually, sorry for the inconvenience...');
         }
 
-        const welcomeMessage = `Welcome ${data.FName} ${data.LName}`;
-        document.getElementById('welcome-message').textContent = welcomeMessage;
-        const welcomePopup = document.getElementById('welcome-popup');
-        // console.log('Popup element:', welcomePopup);
-        welcomePopup.style.display = 'block';
+        showWelcomePopup(data.FName, data.LName);
+    }
+}
 
-        setTimeout(() => {
-            window.location.href = 'Home.html';
-        }, 5000);
+function showWelcomePopup(firstName, lastName) {
+    const welcomeMessage = `Welcome ${firstName} ${lastName}`;
+    document.getElementById('welcome-message').textContent = welcomeMessage;
+    const welcomePopup = document.getElementById('welcome-popup');
+    welcomePopup.style.display = 'flex';
+    setTimeout(() => {
+        window.location.href = 'Home.html';
+    }, 5000);
+}
+
+function showErrorPopup() {
+    const errorPopup = document.getElementById('error-popup');
+    errorPopup.style.display = 'flex';
+}
+
+function closeErrorPopup() {
+    const errorPopup = document.getElementById('error-popup');
+    errorPopup.style.display = 'none';
+}
+
+function togglePasswordVisibility() {
+    const passwordInput = document.getElementById('password');
+    const toggleIcon = document.querySelector('.toggle-password');
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.src = '../Assets/open-eye.png';
+        toggleIcon.alt = 'Hide Password';
+        return;
+    }
+
+    if (passwordInput.type === 'text') {
+        passwordInput.type = 'password';
+        toggleIcon.src = '../Assets/hidden-eye.png';
+        toggleIcon.alt = 'Show Password';
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     initSupabase();
     document.getElementById('login-form').addEventListener('submit', handleLogin);
+    document.querySelector('.toggle-password').addEventListener('click', togglePasswordVisibility);
+    document.getElementById('close-error-popup').addEventListener('click', closeErrorPopup);
+
+    document.getElementById('about-btn').addEventListener('click', function () {
+        window.location.href = 'About.html';
+    });
+
+    document.getElementById('help-btn').addEventListener('click', function () {
+        window.location.href = 'Help.html';
+    });
 });

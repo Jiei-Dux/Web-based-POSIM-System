@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(../Assets/Background1.png);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow-y: scroll;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #000;
+}
+
+header {
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a { 
+    text-decoration: none;
+    color: #000;
+}
+
+
+
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h1, h2, h4 {
+    color: #06c;
+}
+
+
+
+
+.founder {
+    display: inline-block;
+    width: 45%;
+    margin: 1%;
+    text-align: center;
+}
+
+.founder img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+
+
+
+.copyright {
+    text-align: center;
+    padding: 1rem;
+    bottom: 0;
+}

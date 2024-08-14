@@ -1,6 +1,7 @@
 const dbName = "MSKM_Inventory_Database";
 const storeName = "products";
 
+// Initialize IndexedDB and see if it contains shit...
 function initDB() {
     return new Promise((resolve, reject) => {
         const request = indexedDB.open(dbName, 1);
@@ -16,10 +17,11 @@ function initDB() {
     });
 }
 
-async function displayProducts(category) {
-    const products = await fetchProducts(category);
-    console.log('Products to display:', products);
+// Handles Products Displaying... if it isnt obvious yet...
+async function displayProducts(filterType, filterValue) {
+    const products = await fetchProducts(filterType, filterValue);
     const productsContainer = document.getElementById('productsContainer');
+
     if (!productsContainer) {
         console.error('productsContainer is null');
         return;
@@ -34,10 +36,45 @@ async function displayProducts(category) {
     productsContainer.appendChild(row);
 }
 
+// Fetch Products from Supabase
+async function fetchProducts(filterType, filterValue) {
+    try {
+        let query = supabase
+            .from('Product_Table')
+            .select('Product_Name, Product_Price, Product_Category, Product_SubCategory');
+
+        if (filterType === 'category') {
+            query = query.eq('Product_Category', filterValue);
+        } else if (filterType === 'subCategory') {
+            query = query.eq('Product_SubCategory', filterValue);
+        }
+
+        const { data, error } = await query;
+
+        if (error) {
+            console.error('Supabase error:', error);
+            throw error;
+        }
+
+        if (data.length === 0) {
+            console.log(`No products found for ${filterType}:`, filterValue);
+        }
+
+        await saveProductsToIndexedDB(data);
+        return data;
+    } catch (error) {
+        console.error('Error fetching from Supabase:', error);
+        const offlineData = await getProductsFromIndexedDB(filterType, filterValue);
+        console.log('Offline data:', offlineData);
+        return offlineData;
+    }
+}
+
+// Products fetched from SupabaseDB will be saved to IndexedDB
 async function saveProductsToIndexedDB(products) {
     return new Promise((resolve, reject) => {
-        const transaction = db.transaction([storeName], "readwrite");
-        const store = transaction.objectStore(storeName);
+        const transaction = db.transaction(['products'], "readwrite");
+        const store = transaction.objectStore('products');
 
         products.forEach(product => {
             const request = store.put(product);
@@ -54,28 +91,48 @@ async function saveProductsToIndexedDB(products) {
     });
 }
 
-async function getProductsFromIndexedDB(category) {
+// Get products from IndexedDB based on filter
+async function getProductsFromIndexedDB(filterType, filterValue) {
     return new Promise((resolve, reject) => {
-        const transaction = db.transaction([storeName], "readonly");
-        const store = transaction.objectStore(storeName);
+        const transaction = db.transaction(['products'], "readonly");
+        const store = transaction.objectStore('products');
         const request = store.getAll();
         request.onsuccess = () => {
-            const products = request.result.filter(p => p.Product_Category === category);
+            let products = request.result;
+            if (filterType === 'category') {
+                products = products.filter(p => p.Product_Category === filterValue);
+            } else if (filterType === 'subCategory') {
+                products = products.filter(p => p.Product_SubCategory === filterValue);
+            }
             resolve(products);
         };
         request.onerror = (event) => reject(event.target.error);
     });
 }
 
-async function fetchProducts(category) {
+// This part creates the Product Cards... if it aint obvious yet...
+function createProductCard(product) {
+    const col = document.createElement('div');
+    col.className = 'col-6 col-lg-4 mb-3';
+    col.innerHTML = `
+      <div class="product-card">
+        <div class="product-image" id="product-image">
+            <img src="../Assets/images/product icons/drinks.svg">
+        </div>
+        <h6>${product.Product_Name}</h6>
+        <p class="mb-0">PHP ${product.Product_Price.toFixed(2)}</p>
+        <button class="btn btn-sm btn-primary mt-2" onclick="addToCart('${product.Product_Name}', ${product.Product_Price})">Add to Cart</button>
+      </div>
+    `;
+    return col;
+}
+
+// If the name isnt obvious yet then i dont know what to tell you...
+async function fetchAndSaveAllProducts() {
     try {
-        console.log('Fetching products for category:', category);
         const query = supabase
             .from('Product_Table')
-            .select('Product_Name, Product_Price, Product_Category')
-            .eq('Product_Category', category);
-
-        console.log('Query:', query.toString());
+            .select('*');
 
         const { data, error } = await query;
 
@@ -83,64 +140,55 @@ async function fetchProducts(category) {
             console.error('Supabase error:', error);
             throw error;
         }
-        console.log('Fetched data:', data);
-        if (data.length === 0) {
-            console.log('No products found for category:', category);
-        }
         await saveProductsToIndexedDB(data);
-        return data;
     } catch (error) {
-        console.error('Error fetching from Supabase:', error);
-        if (error.message) console.error('Error message:', error.message);
-        if (error.details) console.error('Error details:', error.details);
-        if (error.hint) console.error('Error hint:', error.hint);
-        try {
-            const offlineData = await getProductsFromIndexedDB(category);
-            console.log('Offline data:', offlineData);
-            return offlineData;
-        } catch (offlineError) {
-            console.error('Error fetching from IndexedDB:', offlineError);
-            return [];
-        }
+        console.error('Error fetching all products:', error);
     }
 }
 
-async function initialize() {
+// Event listeners for me category buttons
+document.addEventListener('DOMContentLoaded', () => {
     initSupabase();
-    try {
-        await initDB();
-        console.log("IndexedDB initialized");
-        await displayProducts('DRINKS');
-    } catch (error) {
-        console.error("Failed to initialize:", error);
-    }
-}
+    // Initialize IndexedDB
+    initDB().then(() => {
+        // Display default category products on load
+        displayProducts('category', 'DRINKS');
+    });
 
-document.addEventListener('DOMContentLoaded', initialize);
+    // Category buttons
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const category = e.target.getAttribute('data-category');
+            displayProducts('category', category);
 
-document.querySelectorAll('.horizontal-navbar .nav-link').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
-        const category = e.target.getAttribute('data-category');
-        displayProducts(category);
-        document.querySelectorAll('.horizontal-navbar .nav-link').forEach(l => l.classList.remove('active'));
-        e.target.classList.add('active');
+            // Update active class
+            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+        });
+    });
+
+    // Subcategory buttons
+    document.querySelectorAll('.subcategory-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const subCategory = e.target.getAttribute('data-subcategory');
+            const mainCategory = e.target.getAttribute('data-maincategory');
+
+            displayProducts('subCategory', subCategory);
+
+            // Update active class for categories
+            document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+            const mainCategoryBtn = document.querySelector(`.category-btn[data-category="${mainCategory}"]`);
+            if (mainCategoryBtn) {
+                mainCategoryBtn.classList.add('active');
+            }
+
+            // Remove active class
+            document.querySelectorAll('.subcategory-btn').forEach(b => b.classList.remove('active'));
+        });
     });
 });
-
-function createProductCard(product) {
-    const col = document.createElement('div');
-    col.className = 'col-6 col-lg-4 mb-3';
-    col.innerHTML = `
-                <div class="product-card">
-                    <div class="product-image">?</div>
-                        <h6>${product.Product_Name}</h6>
-                        <p class="mb-0">PHP ${product.Product_Price.toFixed(2)}</p>
-                        <button class="btn btn-sm btn-primary mt-2" onclick="addToCart('${product.Product_Name}', ${product.Product_Price})">Add to Cart</button>
-                </div>
-            `;
-    return col;
-}
 
 let cart = [];
 
@@ -205,7 +253,63 @@ function clearCart() {
     updateCartDisplay();
 }
 
+
+
+
+function showPaymentPopup() {
+    document.getElementById('payment-popup').style.display = 'block';
+}
+
+function closePaymentPopup() {
+    document.getElementById('payment-popup').style.display = 'none';
+}
+
+
+
+
+async function processTransaction(paymentMethod) {
+    const cartItemsString = JSON.stringify(cart);
+    const totalAmount = document.getElementById('cartTotal').textContent;
+    const dateTime = new Date().toISOString();
+
+    // Upload transaction to Supabase
+    const { data, error } = await supabase
+        .from('Transactions')
+        .insert({
+            Items: cartItemsString,
+            Total: totalAmount,
+            DateTime: dateTime,
+            PaymentMethod: paymentMethod
+        });
+
+    if (error) {
+        console.error('Error uploading transaction:', error);
+    } 
+    
+    if (!error) {
+        console.log('Transaction uploaded:', data);
+        generateReceipt(cartItemsString, totalAmount, dateTime, paymentMethod);
+        clearCart();
+        closePaymentPopup();
+    }
+}
+
+
+
+
+function generateReceipt(items, total, dateTime, paymentMethod) {
+    console.log('Receipt');
+    console.log('Items:', items);
+    console.log('Total:', total);
+    console.log('Date:', dateTime);
+    console.log('Payment Method:', paymentMethod);
+}
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Logout confirmation
     const logoutLink = document.querySelector('.navbarLogo_Logout .nav-link');
     const logoutPopup = document.getElementById('logout-popup');
     const confirmLogoutButton = document.getElementById('confirm-logout');

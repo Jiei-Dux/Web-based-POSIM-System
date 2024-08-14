@@ -30,7 +30,7 @@
                     <a href="../html/Home.html">
                         <img src="../Assets/MSKM_Logo.png" width="120" height="120">
                     </a>
-                    <span class="logo_tooltip_text" id="tooltip">Homepage</span>
+                    <span class="logo_tooltip_text" id="tooltip"></span>
                 </div>
                 <div class="col-10">
                     <div class="d-flex justify-content-between align-items-center">
@@ -64,32 +64,32 @@
             <div class="col-1 p-0">
                 <div class="navbar-vertical nav nav-pills flex-column align-items-center justify-content-center h-100">
                     <a class="nav-link text-center active" href="#">
-                        <img src="../Assets/HOME.png" class="buttonIcons d-block mx-auto"><span
-                            class="beauty">HOME</span>
+                        <img src="../Assets/HOME.png" class="buttonIcons d-block mx-auto">
+                        <span class="beauty">HOME</span>
                     </a>
                     <a class="nav-link text-center" href="#">
-                        <img src="../Assets/STOCKS.png" class="buttonIcons d-block mx-auto"><span
-                            class="beauty">STOCKS</span>
+                        <img src="../Assets/STOCKS.png" class="buttonIcons d-block mx-auto">
+                        <span class="beauty">STOCKS</span>
                     </a>
                     <a class="nav-link text-center" href="#">
-                        <img src="../Assets/REPORTS.png" class="buttonIcons d-block mx-auto"><span
-                            class="beauty">REPORTS</span>
+                        <img src="../Assets/REPORTS.png" class="buttonIcons d-block mx-auto">
+                        <span class="beauty">REPORTS</span>
                     </a>
                     <a class="nav-link text-center" href="#">
-                        <img src="../Assets/SETTINGS.png" class="buttonIcons d-block mx-auto"><span
-                            class="beauty">SETTINGS</span>
+                        <img src="../Assets/SETTINGS.png" class="buttonIcons d-block mx-auto">
+                        <span class="beauty">SETTINGS</span>
                     </a>
                     <div class="navbarLogo_User">
                         <a class="nav-link" href="#">
                             <img src="../Assets/USER.png" class="buttonIcons">
                         </a>
-                        <span class="logo_tooltip_text" id="tooltipUser">User</span>
+                        <span class="logo_tooltip_text" id="tooltipUser"></span>
                     </div>
                     <div class="navbarLogo_Logout">
                         <a class="nav-link" href="#">
                             <img src="../Assets/LOGOUT.png" class="buttonIcons">
                         </a>
-                        <span class="logo_tooltip_text" id="tooltipLogout">Logout</span>
+                        <span class="logo_tooltip_text" id="tooltipLogout"></span>
                     </div>
 
                     <!-- Logout Confirmation Popup -->
@@ -106,10 +106,75 @@
             <!-- Products Column -->
             <div class="col-6 products-column">
                 <div class="horizontal-navbar nav nav-pills mb-3">
-                    <a class="nav-link active" href="#" data-category="DRINKS">Drinks</a>
-                    <a class="nav-link" href="#" data-category="FOOD">Food</a>
-                    <a class="nav-link" href="#" data-category="WHOLESALE">Wholesale</a>
-                    <a class="nav-link" href="#" data-category="OTHERS">Others</a>
+                    <!-- Drinks Category with Dropdown -->
+                    <div class="btn-group">
+                        <button type="button" class="nav-link active category-btn"
+                            data-category="DRINKS">Drinks</button>
+                        <button type="button" class="btn dropdown-toggle dropdown-toggle-split dropdownBTN"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item subcategory-btn" data-subCategory="COFFEE"
+                                    data-maincategory="DRINKS">Coffee</a>
+                            </li>
+                            <li><a class="dropdown-item subcategory-btn" data-subCategory="LIQOUR"
+                                    data-maincategory="DRINKS">Liqour</a>
+                            </li>
+                            <li><a class="dropdown-item subcategory-btn" data-subCategory="SOJU"
+                                    data-maincategory="DRINKS">Soju</a>
+                            </li>
+                            <li><a class="dropdown-item subcategory-btn" data-subCategory="TEA"
+                                    data-maincategory="DRINKS">Tea</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Food Category with Dropdown -->
+                    <div class="btn-group">
+                        <button type="button" class="nav-link category-btn" data-category="FOOD">Foods</button>
+                        <button type="button" class="btn dropdown-toggle dropdown-toggle-split dropdownBTN"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item subcategory-btn" data-subCategory="ICE CREAM"
+                                    data-maincategory="FOOD">Ice Cream</a>
+                            </li>
+                            <li><a class="dropdown-item subcategory-btn" data-subCategory="BISCUIT"
+                                    data-maincategory="FOOD">Biscuits</a>
+                            </li>
+                            <li><a class="dropdown-item subcategory-btn" data-subCategory="NOODLES"
+                                    data-maincategory="FOOD">Noodles</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Wholesale Category -->
+                    <!-- <a class="nav-link" data-category="WHOLESALE">Wholesale</a> -->
+
+                    <!-- Others Category with Dropdown -->
+                    <div class="btn-group">
+                        <button type="button" class="nav-link category-btn" data-category="OTHERS">Others</button>
+                        <button type="button" class="btn dropdown-toggle dropdown-toggle-split dropdownBTN"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item subcategory-btn" data-subCategory="BUTANE"
+                                    data-maincategory="OTHERS">Butane</a>
+                            </li>
+                            <li><a class="dropdown-item subcategory-btn" data-subCategory="PASTE"
+                                    data-maincategory="OTHERS">Paste</a>
+                            </li>
+                            <li><a class="dropdown-item subcategory-btn" data-subCategory="SESAME OIL"
+                                    data-maincategory="OTHERS">Sesame Oil</a>
+                            </li>
+                            <li><a class="dropdown-item subcategory-btn" data-subCategory="JAM"
+                                    data-maincategory="OTHERS">Jam</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
                 <div id="productsContainer"></div>
             </div>
@@ -118,7 +183,7 @@
             <div class="col-5 cart-column">
                 <div class="d-flex justify-content-between">
                     <h4 class="Cart">Cart</h4>
-                    <a href="#" class="delete-button" onclick="clearCart()">
+                    <a class="delete-button" onclick="clearCart()">
                         <img src="../Assets/DELETE.png">
                     </a>
                 </div>
@@ -128,16 +193,26 @@
                 </div>
                 <div class="button-container mt-3 btnfontSize">
                     <button class="btn btn-secondary w-50 mr-2">Pay Later</button>
-                    <button class="btn btn-primary w-50">Proceed to Payment</button>
+                    <button class="btn btn-primary w-50" onclick="showPaymentPopup()">Proceed to Payment</button>
+                </div>
+            </div>
+
+            <!-- Payment Popup -->
+            <div id="payment-popup" class="payment-popup">
+                <div class="payment-popup-content">
+                    <h4>Select Payment Method</h4>
+                    <button id="cashButton" class="popup-button" onclick="handleCashPayment()">Cash</button>
+                    <button id="gcashButton" class="popup-button" onclick="handleGCashPayment()">GCash</button>
+                    <button id="closePopup" class="popup-button" onclick="closePaymentPopup()">Close</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- JavaScripts -->
-    <script src="../js/main.js"></script>
-    <script src="../js/Home.js"></script>
+    <script src="../js/Bootstrap JS/bootstrap.bundle.min.js"></script>
     <script src="../js/Database.js"></script>
+    <script src="../js/Home.js"></script>
 </body>
 
 </html>

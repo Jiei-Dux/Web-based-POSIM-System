@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title> Login | Meogeo Sarang Korean Mart </title>
 
-    <!-- Favicon -->
+    <!-- Favicon | Tab Icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../Assets/MSKM_Tab_Logo-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../Assets/MSKM_Tab_Logo-32x32.png">
 
@@ -15,29 +15,56 @@
     <!-- CSS -->
     <link rel="stylesheet" href="../css/Login.css">
 
-    <!-- Supabase Database -->
+    <!-- Init Supabase Database -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 
-<body class="MainLogin">
-    <div class="login-container">
-        <img src="../Assets/MSKM_Logo.png" alt="Logo">
-        <form id="login-form">
-            <input type="text" id="employee-id" placeholder="Employee ID" required autocomplete="off">
-            <input type="password" id="password" placeholder="Password" required autocomplete="off">
-            <button type="submit">LOG IN</button>
-        </form>
-        <a href="#">Forgot ID or Password?</a>
-    </div>
-    <div class="footer">
-        <a href="#">About</a>
-        <a href="#">Help</a>
-    </div>
-    <div class="welcome-popup" id="welcome-popup">
-        <p id="welcome-message"></p>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <img src="../Assets/MSKM_Logo.png" alt="MSKM Logo" class="logo">
+            <form id="login-form">
+                <div class="input-group">
+                    <input type="text" id="employee-id" required autocomplete="off">
+                    <label for="employee-id">Employee ID</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" required autocomplete="off">
+                    <label for="password">Password</label>
+                    <img src="../Assets/hidden-eye.png" alt="Toggle Password" class="toggle-password">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </form>
+            <div class="additional-links">
+                <div class="social-media">
+                    <a href="https://www.facebook.com/meogeosarang" class="social-icon"><img src="../Assets/images/social/facebook-icon.svg" alt="Facebook"></a>
+                    <a href="#" class="social-icon"><img src="../Assets/images/social/gcash-icon.svg" alt="GCash"></a>
+                </div>
+            </div>
+            <div class="bottom-buttons">
+                <button id="about-btn" class="btn btn-secondary btn-sm">About Us</button>
+                <button id="help-btn" class="btn btn-secondary btn-sm">Help</button>
+            </div>
+        </div>
     </div>
 
-    <!-- FUNCTIONS -->
+    <div id="welcome-popup" class="popup">
+        <div class="popup-content">
+            <h2 id="welcome-message"></h2>
+            <p>You will be redirected to the home page in 5 seconds.</p>
+            <div class="loader"></div>
+        </div>
+    </div>
+
+    <div id="error-popup" class="popup">
+        <div class="popup-content">
+            <h2>Login Failed</h2>
+            <p>Invalid ID or password. Please try again.</p>
+            <button id="close-error-popup" class="btn btn-primary">Close</button>
+        </div>
+    </div>
+
+    <!-- Javascript -->
     <script src="../js/Database.js"></script>
     <script src="../js/Login.js"></script>
 </body>
