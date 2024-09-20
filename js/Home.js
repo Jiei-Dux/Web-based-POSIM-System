@@ -78,8 +78,8 @@ async function fetchProducts(filterType, filterValue, category = null) {
 // Products fetched from SupabaseDB will be saved to IndexedDB
 async function saveProductsToIndexedDB(products) {
     return new Promise((resolve, reject) => {
-        const transaction = db.transaction(['products'], "readwrite");
-        const store = transaction.objectStore('products');
+        const transaction = db.transaction(['Products'], "readwrite");
+        const store = transaction.objectStore('Products');
 
         products.forEach(product => {
             const request = store.put(product);
@@ -102,8 +102,8 @@ async function saveProductsToIndexedDB(products) {
 // Get products from IndexedDB based on filter
 async function getProductsFromIndexedDB(filterType, filterValue) {
     return new Promise((resolve, reject) => {
-        const transaction = db.transaction(['products'], "readonly");
-        const store = transaction.objectStore('products');
+        const transaction = db.transaction(['Products'], "readonly");
+        const store = transaction.objectStore('Products');
         const request = store.getAll();
 
         request.onsuccess = () => {
