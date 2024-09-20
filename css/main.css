@@ -1,3 +1,55 @@
+/* ===== ===== ===== VARIABLES ===== ===== ===== */
+:root {
+    /* ----- Colors ----- */
+    --gray: #666666;
+    --black: #000000;
+    --darkPink: #b28089;
+    --sakuraPink: #ffb7c5;
+
+
+
+
+    /* ----- Light Mode ----- */
+    --lightMode_text-color: var(--black);
+    --lightMode_hover-color: var(--darkPink);
+    --lightMode_border-color: var(--black);
+    --lightMode_background-color: var(--sakuraPink);
+
+
+
+    /* ----- Dark Mode ----- */
+    --darkMode_text-color: var(--sakuraPink);
+    --darkMode_hover-color: var(--sakuraPink);
+    --darkMode_border-color: var(--sakuraPink);
+    --darkMode_background-color: var(--black);
+    --darkMode_input_background-color: var(--black);
+}
+
+
+
+
+
+
+
+
+
+
+/* ====== ====== ====== ====== ====== Default Settings ===== ====== ====== ====== ====== */
+/* For Webkit Browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-track:hover {
+    background: transparent;
+}
+
+/* For Firefox */
+html {
+    scrollbar-color: rgba(75, 0, 130, 0.2) transparent;
+    scrollbar-width: thin;
+}
+
 body {
     font-family: monospace, serif;
 }
@@ -5,55 +57,91 @@ body {
 
 
 
-.Main {
-    background-image: url(../Assets/Background1.png);
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    height: 100vh;
-    margin: 0;
-    overflow-y: scroll;
+
+
+
+
+
+
+/* ===== ===== ===== Light Mode (Default) ===== ===== ===== */
+body {
+    color: var(--lightMode_text-color);
+    background-color: var(--lightMode_background-color);
+
+    transition: background-color 0.3s, color 0.3s;
 }
 
 
 
 
+.navbar-vertical .navigationBar {
+    color:var(--lightMode_text-color)
+}
+
+.navbar-vertical .navigationBar.active {
+    opacity: 100%;
+
+    color: var(--lightMode_text-color);
+    background-color: #b28089;
+}
+
+.navbar-vertical .mainBtnGrp:hover {
+    background-color: #b28089;
+}
+
+
+
+
+
+
+
+
+
+
+/* ===== ===== ===== Dark Mode ===== ===== ===== */
+body.dark-mode .logo svg {
+    filter: invert(1);
+}
+
+body.dark-mode {
+    color: #ffb7c5;
+    background-color: #000000;
+}
+
+
+
+
+body.dark-mode .navbar-vertical .navigationBar.active {
+    opacity: 100%;
+    color: #ffb7c5;
+    background-color: #666666;
+}
+
+body.dark-mode .navbar-vertical .navigationBar {
+    color:#ffb7c5
+}
+
+.navbar-vertical .mainBtnGrp:hover {
+    background-color: #b28089;
+}
+
+
+
+
+/* ===== ===== ===== Other Bullshit ===== ===== ===== */
 .logo {
     position: relative;
     display: inline-block;
     margin: 0px 20px 0px 5px;
 }
 
-.logo img {
-    transition: transform 0.3s ease;
-}
-
-.logo img:hover {
-    transform: scale(1.08);
-}
-
 
 
 
 .header {
+    padding: 10px 0 0 0;
+
     background-color: transparent;
-    padding: 10px 0;
-}
-
-
-
-
-.divider1 {
-    width: 100%;
-    height: 4px;
-    background-color: #000000;
-    margin-top: 10px;
-}
-
-.divider2 {
-    width: 100%;
-    height: 2px;
-    background-color: #000000;
 }
 
 
@@ -65,62 +153,130 @@ body {
 }
 
 .nav-pills .nav-link {
-    border-radius: 15px;
-    margin-bottom: 5px;
-    background: none;
-    border: 1px solid transparent;
+    opacity: 50%;
     padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+
     cursor: pointer;
     text-align: center;
-    opacity: 50%;
-    color: #000000;
+    border: 1px solid transparent;
+
+    color: var(--black);
+    background: none;
 }
 
-.nav-pills .nav-link.active {
-    background-color: #ffb7c5;
-    color: #000000;
-    opacity: 100%;
-}
+
+
 
 .navbar-vertical {
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    border-radius: 15px;
     padding: 20px 0px;
-    margin-left: 10px;
+    margin: 0 auto 0 10px;
+    border-radius: 15px;
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    background-color: transparent;
 }
 
 .navbar-vertical .nav-link {
     width: 100%;
-    text-align: center;
     margin-bottom: 15px;
     display: flex;
-    flex-direction: column;
+    text-align: center;
     align-items: center;
+    flex-direction: column;
 }
 
-.navbar-vertical .buttonIcons {
+.navbar-vertical .navigationBar {
+    text-align: center;
+}
+
+.navbar-vertical svg,
+.navbar-vertical img {
+    width: 25px;
+    height: 25px;
     display: block;
-    margin: 0 auto 5px;
-    width: 40px;
-    height: 40px;
+    margin: 0 auto 5px auto;
 }
 
-.navbar-vertical .mt-auto {
-    margin-top: auto;
+
+
+
+/* ===== ===== ===== Animations ===== ===== ===== */
+/* ----- Logo -----  */
+.logo svg,
+.logo img {
+    width: 120px;
+    height: 120px;
 }
 
-.horizontal-navbar .nav-link {
-    margin-bottom: 0; /* Remove margin for horizontal alignment */
-    margin-right: 10px; /* Space between the horizontal nav links */
+.logo svg:hover,
+.logo img:hover {
+    animation: shake 0.5s linear;
 }
 
-.horizontal-navbar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center; /* Center the horizontal nav links */
+
+
+
+/* Refresh Connection Button */
+.refreshBTN:hover img {
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+
+
+/* ----- Stocks ----- */
+.stocksBTN:hover img {
+    animation: tilt 1.5s ease-in-out infinite;
+}
+
+@keyframes tilt {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+@keyframes pause {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+}
+
+
+
+
+/* ----- Reports ----- */
+.reportsBTN:hover #reportsButton {
+    animation: reportsButtonAnimation 1000ms linear infinite normal forwards;
+}
+
+@keyframes reportsButtonAnimation {
+    0% { transform: translate(390.16449px, 112.601501px); }
+    30% { transform: translate(374.697429px, 133.946058px); }
+    70% { transform: translate(361.82049px, 152.815878px); }
+    100% { transform: translate(390.16px, 112.6px); }
+}
+
+
+
+
+/* ----- Settings ----- */
+.settingsBTN:hover img {
+    animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }

@@ -1,42 +1,60 @@
+/* ===== ===== ===== ===== ===== VARIABLES ===== ===== ===== ===== ===== */
+:root {
+    --softCoralPink: #f48f9a;
+    --blushPink: #f8a8b2;
+
+    --deepCharcoal: #121212;
+    --charcoalGray: #2f2f2f;
+    --darkSlateGray: #2f2f2f;
+}
+
+
+
+
+/* ===== ===== ===== ===== ===== Light Mode ===== ===== ===== ===== ===== */
 body {
-    background: url(../Assets/Background1.png) no-repeat center center fixed;
-    background-size: cover;
+    background-color: var(--softCoralPink);
+    color: var(--darkSlateGray);
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .MSKM_Logo {
-    display: inline-block; 
+    display: inline-block;
     align-items: center;
     height: 120px;
+    transition: filter 0.5s ease;
 }
 
-.navbar {
-    background-color: rgba(0, 0, 0, 0.5) !important;
-    backdrop-filter: blur(10px);
-    transition: background-color 0.3s ease;
+/* Navbar */
+nav {
+    background-color: var(--blushPink);
+    transition: background-color 0.5s ease;
 }
 
 .navbar-brand img {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, filter 0.5s ease;
 }
 
 .navbar-brand:hover img {
-    transform: scale(1.2);
+    transform: scale(1.15);
 }
 
 .navbar-nav .nav-link {
-    color: #fff !important;
+    color: var(--charcoalGray);
     font-weight: 500;
     position: relative;
-    padding: 8px 15px;
-    transition: color 0.3s ease;
+    padding: 12px 20px;
+    transition: color 0.3s ease, background-color 0.5s ease;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #f8f9fa !important;
+    color: #ffffff;
 }
 
 .navbar-toggler {
-    border-color: rgba(255,255,255,0.5);
+    border-color: rgba(255, 255, 255, 0.7);
+    transition: border-color 0.5s ease;
 }
 
 .navbar-nav .nav-link::after {
@@ -46,7 +64,7 @@ body {
     height: 2px;
     bottom: 0;
     left: 50%;
-    background-color: #fff;
+    background-color: #2f2f2f;
     transition: all 0.3s ease;
 }
 
@@ -55,41 +73,256 @@ body {
     left: 0;
 }
 
-@media (max-width: 991.98px) {
-    .navbar-nav {
-        padding: 10px;
-        border-radius: 5px;
-    }
-    .navbar-nav .nav-link {
-        padding: 10px 0;
-    }
-}
-
+/* Header */
 header {
     text-align: center;
     margin: auto auto 50px auto;
+    background-color: #f8a8b2;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 
+h1 {
+    color: #000000;
+    transition: color 0.5s ease;
+}
+
+/* Toggle Button */
+.toggle-button {
+    margin-top: 1rem;
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    color: #333333;
+    background-color: #f48f9a;
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.toggle-button:hover {
+    background-color: #b15f68;
+    box-shadow: 0 4px 12px rgba(177, 95, 104, 0.3);
+}
+
+/* Main Content */
 main section {
-    background-color: #fff;
-    opacity: 0.8;
-    border-radius: 5px;
-    padding: 20px;
+    background-color: #f8a8b2;
+    opacity: 0.95;
+    border-radius: 10px;
+    padding: 25px;
     margin-bottom: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease, opacity 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* List Group Item */
+.list-group-item {
+    background-color: #f8a8b2;
+    color: #2f2f2f;
+    border: none;
+    padding: 15px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Basic Operations Section Background */
+.basicOperations {
+    background-color: #f8a8b2;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Accordion Item Background */
+.basicOperations .accordion-item {
+    background-color: #f8a8b2;
+    border: none;
+    color: #2f2f2f;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Accordion Header Background */
+.basicOperations .accordion-header {
+    background-color: #f8a8b2;
+    border-bottom: 1px solid #f8a8b2;
+    transition: background-color 0.5s ease, border-bottom-color 0.5s ease;
+}
+
+/* Accordion Button Background */
+.basicOperations .accordion-button {
+    background-color: #f8a8b2;
+    color: #2f2f2f;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.basicOperations .accordion-button:hover {
+    background-color: #e8939d;
+}
+
+/* Card */
+.cardz {
+    justify-content: center;
+    transition: justify-content 0.5s ease;
 }
 
 .card {
     height: 100%;
+    background-color: #e8939d;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f8a8b2;
+    color: #2f2f2f;
+    font-size: 1rem;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* Back to Top Button */
 #back-to-top {
     position: fixed;
     bottom: 20px;
     right: 20px;
     display: none;
+    background-color: #ffb7c5;
+    color: #2c2c2c;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
 }
 
-.copyright {
-    text-align: center;
-    padding: 1rem;
+
+
+
+
+
+
+
+/* ===== ===== ===== ===== ===== Dark Mode ===== ===== ===== ===== ===== */
+body.dark-mode {
+    color: var(--softCoralPink);
+    background-color: var(--deepCharcoal);
+    transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+body.dark-mode .MSKM_Logo {
+    filter: invert(1);
+}
+
+body.dark-mode header {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+body.dark-mode h1 {
+    color: #ffb7c5;
+    transition: color 0.5s ease;
+}
+
+body.dark-mode .toggle-button {
+    color: #ffb7c5;
+    background-color: #333333;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark-mode .toggle-button:hover {
+    color: #ffb7c5;
+    background-color: #444444;
+}
+
+body.dark-mode .navbar {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    transition: background-color 0.5s ease, backdrop-filter 0.5s ease;
+}
+
+body.dark-mode .navbar-nav .nav-link {
+    color: #ffb7c5;
+    transition: color 0.5s ease;
+}
+
+body.dark-mode .navbar-nav .nav-link:hover {
+    color: #ffb7c5;
+}
+
+body.dark-mode .navbar-nav .nav-link::after {
+    background-color: #ffb7c5;
+}
+
+body.dark-mode main section {
+    background-color: #1e1e1e;
+    transition: background-color 0.5s ease, opacity 0.5s ease;
+}
+
+body.dark-mode .list-group-item {
+    background-color: #333333;
+    color: #ffb7c5;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Dark Mode Accordion Item Background */
+body.dark-mode .basicOperations .accordion-item {
+    background-color: #333333;
+    color: #ffb7c5;
+    transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+}
+
+/* Dark Mode Accordion Header Background */
+body.dark-mode .basicOperations .accordion-header {
+    background-color: #444444;
+    border-bottom: 1px solid #555555;
+    color: #ffb7c5;
+    transition: background-color 0.5s ease, border-bottom-color 0.5s ease, color 0.5s ease;
+}
+
+/* Dark Mode Accordion Button Background */
+body.dark-mode .basicOperations .accordion-button {
+    background-color: #555555;
+    color: #ffb7c5;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark-mode .basicOperations .accordion-button:hover {
+    background-color: #666666;
+}
+
+body.dark-mode .card {
+    background-color: #2c2c2c;
+    color: #ffb7c5;
+    border: 1px solid #333333;
+    transition: background-color 0.5s ease, border-color 0.5s ease, color 0.5s ease;
+}
+
+/* Back to Top Button */
+body.dark-mode #back-to-top {
+    background-color: #2c2c2c;
+    color: #ffb7c5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+}
+
+body.dark-mode footer {
+    background-color: #1e1e1e;
+    color: #b0b0b0;
+    transition: background-color 0.5s ease, color 0.5s ease, padding 0.5s ease, font-size 0.5s ease;
 }

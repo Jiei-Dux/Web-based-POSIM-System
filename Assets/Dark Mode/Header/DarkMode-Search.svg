@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+ // 16pxls (c) by Paul mackenzie <paul@whatspauldoing.com>
+ //
+ // 16pxls is licensed under a
+ // Creative Commons Attribution-ShareAlike 4.0 International License.
+ //
+ // You should have received a copy of the license along with this
+ // work. If not, see <http://creativecommons.org/licenses/by-sa/4.0/>.
+-->
+
+<svg
+   fill="#000000"
+   width="800"
+   height="800"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="search-svgrepo-com.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     showgrid="false" />
+  <path
+     d="M 12.027,9.92 16,13.95 14,16 9.925,12.024 A 6.465,6.465 0 0 1 6.5,13 C 2.91,13 0,10.083 0,6.5 0,2.91 2.917,0 6.5,0 10.09,0 13,2.917 13,6.5 A 6.463,6.463 0 0 1 12.027,9.92 Z M 1.997,6.452 c 0,2.48 2.014,4.5 4.5,4.5 2.48,0 4.5,-2.015 4.5,-4.5 0,-2.48 -2.015,-4.5 -4.5,-4.5 -2.48,0 -4.5,2.014 -4.5,4.5 z"
+     fill-rule="evenodd"
+     id="path1"
+     style="fill:#ffb7c5;fill-opacity:1" />
+</svg>

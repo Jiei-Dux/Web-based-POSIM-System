@@ -1,74 +1,342 @@
 body {
-    font-family: Arial, sans-serif;
-    background-image: url(../Assets/Background1.png);
-    background-size: cover;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    height: 100vh;
-    overflow-y: scroll;
     line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    color: #000;
+    color: #333333;
+    background-color: #f48f9a;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
+
+
+
 header {
-    padding: 1rem;
+    padding: 2rem 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #f8a8b2;
+    transition: background-color 0.5s ease;
+}
+
+
+
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #000000;
+    transition: color 0.5s ease;
+}
+
+
+
+
+nav ul {
+    padding: 0;
+    list-style: none;
     text-align: center;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
 nav ul li {
-    display: inline;
-    margin-right: 10px;
+    margin: 0 15px;
+    display: inline-block;
 }
 
 nav ul li a { 
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: #2f4f4f;
     text-decoration: none;
-    color: #000;
+    background-color: #e5a4b1;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+nav ul li a:hover {
+    background-color: #cc929d;
+    box-shadow: 0 4px 10px rgba(255, 183, 197, 0.2);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+
+
+
+.toggle-button {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    color: #000000;
+    background-color: #ffb7c5;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.toggle-button:hover {
+    background-color: #cc929d;
+    box-shadow: 0 4px 10px rgba(255, 183, 197, 0.2);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 
 
 
 
 main {
-    max-width: 800px;
-    margin: 0 auto;
     padding: 2rem;
+    max-width: 900px;
+    margin: 3rem auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #f8a8b2;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
+
+
+
 
 section {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
 }
 
-h1, h2, h4 {
-    color: #06c;
+
+
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    color: #2f4f4f;
+    border-bottom: 2px solid #2f4f4f;
+    transition: color 0.5s ease, border-bottom 0.5s ease;
+}
+
+
+
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: #2f4f4f;
+    transition: color 0.5s ease;
+}
+
+
+
+
+#branch-list li {
+    color: #2f4f4f;
+    transition: color 0.5s ease;
 }
 
 
 
 
 .founder {
-    display: inline-block;
     width: 45%;
     margin: 1%;
+    padding: 1rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
+    display: inline-block;
+    background-color: #ffb7c5;
+    transition: box-shadow 0.5s ease;
 }
 
 .founder img {
-    max-width: 100%;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 3px solid #2f4f4f;
+    transition: border 0.5s ease;
 }
 
 
 
 
-.copyright {
+h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #2f4f4f;
+    transition: color 0.5s ease;
+}
+
+
+
+
+.backBTN {
+    margin: 2rem 0;
     text-align: center;
-    padding: 1rem;
+}
+
+.backBTN .btn {
+    font-size: 1.1rem;
+    padding: 10px 30px;
+    border-radius: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #333333;
+    text-decoration: none;
+    background-color: #ffb7c5;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.backBTN .btn:hover {
+    background-color: #e0a0b0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+footer {
     bottom: 0;
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1rem;
+    color: #2f4f4f;
+    position: relative;
+    text-align: center;
+    background-color: #f8a8b2;
+}
+
+
+
+
+
+
+
+
+/*  */
+body.dark-mode {
+    color: #e0e0e0;
+    background-color: #121212;
+    transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+
+
+
+body.dark-mode header {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: #1e1e1e;
+    transition: box-shadow 0.5s ease, background-color 0.5s ease;
+}
+
+
+
+
+body.dark-mode h1 {
+    color: #ffb7c5;
+    transition: color 0.5s ease;
+}
+
+
+
+
+body.dark-mode nav ul li a { 
+    color: #ffb7c5;
+    background-color: #333333;
+    transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+body.dark-mode nav ul li a:hover {
+    box-shadow: 0 4px 10px rgba(187, 134, 252, 0.2);
+    color: #121212;
+    background-color: #ffb7c5;
+    transition: color 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+
+
+
+body.dark-mode .toggle-button {
+    color: #ffb7c5;
+    background-color: #333333;
+    transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+body.dark-mode .toggle-button:hover {
+    color: #ffb7c5;
+    background-color: #121212;
+    transition: color 0.5s ease, background-color 0.5s ease;
+}
+
+
+
+
+body.dark-mode main {
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+
+
+
+body.dark-mode h2 {
+    color: #ffb7c5;
+    border-bottom: 2px solid #ffb7c5;
+    transition: color 0.5s ease, border-bottom 0.5s ease;
+}
+
+
+
+
+body.dark-mode p {
+    color: #b0b0b0;
+    transition: color 0.5s ease;
+}
+
+
+
+
+body.dark-mode #branch-list li {
+    color: #b0b0b0;
+    transition: color 0.5s ease;
+}
+
+
+
+
+body.dark-mode .founder {
+    background-color: #333333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+body.dark-mode .founder img {
+    border: 3px solid #ffb7c5;
+    transition: border 0.5s ease;
+}
+
+
+
+
+body.dark-mode h4 {
+    color: #ffb7c5;
+    transition: color 0.5s ease;
+}
+
+
+
+
+body.dark-mode .backBTN .btn {
+    color: #121212;
+    background-color: #ffb7c5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    transition: color 0.5s ease, background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+body.dark-mode .backBTN .btn:hover {
+    background-color: #ffb7c5;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+
+
+
+body.dark-mode footer {
+    color: #b0b0b0;
+    background-color: #1e1e1e;
+    transition: color 0.5s ease, background-color 0.5s ease;
 }

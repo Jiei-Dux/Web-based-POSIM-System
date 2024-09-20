@@ -17,10 +17,16 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <div class="navbar-brand">
-                <img src="../Assets/MSKM_Logo.png" alt="Meogeo Sarang Korean Mart" height="40" class="MSKM_Logo">
+                <a href="Login.html">
+                    <img 
+                        src="../Assets/MSKM_Logo.png" 
+                        alt="Meogeo Sarang Korean Mart" 
+                        height="40" 
+                        class="MSKM_Logo">
+                </a>
             </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,6 +50,7 @@
         <header>
             <h1> Meogeo Sarang Korean Mart | Point-of-Sales and Inventory Management System </h1>
             <h2> Help Page </h2>
+            <button id="darkModeToggle" class="toggle-button">Toggle Dark/Light Mode</button>
         </header>
 
         <main>
@@ -79,8 +86,7 @@
                 <h3> Navigation Guide </h3>
                 <p> The main interface consists of several key areas: </p>
                 <ul class="list-group">
-                    <li class="list-group-item"> Left Navigation Bar: Quick access to main features [ Home, Stocks,
-                        Reports, Settings ] </li>
+                    <li class="list-group-item"> Left Navigation Bar: Quick access to main features [ Home, Stocks, Reports, Settings ] </li>
                     <li class="list-group-item"> Top Bar: Search bar, Database Connectivity Refresher and Checker </li>
                     <li class="list-group-item"> Main Content Area: Where you'll perform most operations </li>
                     <li class="list-group-item"> Right Shopping Cart: Where the selected products will appear </li>
@@ -92,18 +98,24 @@
                 <div class="accordion" id="basicOperationsAccordion">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingSales">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseSales" aria-expanded="true" aria-controls="collapseSales">
+                            <button 
+                                class="accordion-button collapsed" 
+                                type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseSales" 
+                                aria-expanded="false" 
+                                aria-controls="collapseSales">
                                 Sales Transactions
                             </button>
                         </h2>
-                        <div id="collapseSales" class="accordion-collapse collapse show" aria-labelledby="headingSales"
+                        <div 
+                            id="collapseSales" 
+                            class="accordion-collapse collapse" 
+                            aria-labelledby="headingSales"
                             data-bs-parent="#basicOperationsAccordion">
                             <div class="accordion-body">
                                 <ol>
-                                    <li> Either manually navigate and scroll through the list of products or use the search bar
-                                    </li>
                                     <li> Scan items or Add them manually </li>
+                                    <li> Either manually navigate and scroll through the list of products or use the search bar</li>
                                     <li> Apply any discounts if necessary </li>
                                     <li> Ask if the customer wanted to Pay-Later or Proceed to Payment </li>
                                     <li> Select payment method </li>
@@ -115,8 +127,12 @@
 
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingInventory">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseInventory" aria-expanded="false"
+                            <button 
+                                class="accordion-button collapsed" 
+                                type="button" 
+                                data-bs-toggle="collapse"
+                                data-bs-target="#collapseInventory" 
+                                aria-expanded="false"
                                 aria-controls="collapseInventory"> Inventory Management
                             </button>
                         </h2>
@@ -133,7 +149,7 @@
 
             <section id="adv-features" class="mb-5">
                 <h3> Advanced Features </h3>
-                <div class="row">
+                <div class="row cardz">
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-body">
@@ -178,10 +194,8 @@
         </main>
     </div>
 
-    <footer class="copyright py-3 mt-5">
-        <div class="container">
-            <p>&copy; 2024 Meogeo Sarang Korean Mart. All rights reserved</p>
-        </div>
+    <footer>
+        <p>&copy; 2024 Meogeo Sarang Korean Mart. All rights reserved</p>
     </footer>
 
     <!-- Javascript -->

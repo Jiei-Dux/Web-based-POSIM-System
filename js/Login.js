@@ -1,11 +1,11 @@
-async function handleLogin(event) {
+async function LoginHandler(event) {
     event.preventDefault();
 
     const employeeId = document.getElementById('employee-id').value;
     const password = document.getElementById('password').value;
 
     const { data, error } = await supabase
-        .from('Employee_Table')
+        .from('Employee')
         .select('Employee_ID, FName, LName')
         .eq('Employee_ID', employeeId)
         .eq('Password', password)
@@ -17,35 +17,6 @@ async function handleLogin(event) {
     }
 
     if (data) {
-        const now = new Date();
-        console.log('Attempting to insert attendance record...');
-        const { data: maxNumberData, error: maxNumberError } = await supabase
-            .from('Employee_Attendance')
-            .select('Number')
-            .order('Number', { ascending: false })
-            .limit(1)
-            .single();
-
-        let nextNumber = 1;
-        if (!maxNumberError && maxNumberData) {
-            nextNumber = maxNumberData.Number + 1;
-        }
-
-        const { error: attendanceError } = await supabase
-            .from('Employee_Attendance')
-            .insert({
-                Number: nextNumber,
-                Employee_Number: data.Employee_ID,
-                FName: data.FName,
-                LName: data.LName,
-                ClockIn: now.toISOString()
-            });
-
-        if (attendanceError) {
-            console.error('Error recording attendance:', attendanceError);
-            alert('Login successful, but there was an error recording attendance. Please check in manually, sorry for the inconvenience...');
-        }
-
         showWelcomePopup(data.FName, data.LName);
     }
 }
@@ -57,6 +28,7 @@ function showWelcomePopup(firstName, lastName) {
     welcomePopup.style.display = 'flex';
     setTimeout(() => {
         window.location.href = 'Home.html';
+        console.log(new Date().toISOString());
     }, 5000);
 }
 
@@ -90,7 +62,7 @@ function togglePasswordVisibility() {
 
 document.addEventListener('DOMContentLoaded', () => {
     initSupabase();
-    document.getElementById('login-form').addEventListener('submit', handleLogin);
+    document.getElementById('login-form').addEventListener('submit', LoginHandler);
     document.querySelector('.toggle-password').addEventListener('click', togglePasswordVisibility);
     document.getElementById('close-error-popup').addEventListener('click', closeErrorPopup);
 

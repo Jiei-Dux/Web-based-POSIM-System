@@ -1,4 +1,131 @@
+/* ===== ===== ===== ===== ===== VARIABLES ===== ===== ===== ===== ===== */
+:root {
+    /* Soft Warm Pink Shades */
+    --softWarmPink-1: #f8a8b2; /* Peachy Pink */
+    --softWarmPink-2: #f6b6b8; /* Warm Blush Pink */
+    --softWarmPink-3: #f4a2b2; /* Light Rose Pink */
+    --softWarmPink-4: #f2a1a1; /* Soft Coral Pink */
+    --softWarmPink-5: #f5c2b2; /* Peach Blush Pink */
+    --softWarmPink-6: #f6b8b8; /* Soft Peach Pink */
+    --softWarmPink-7: #f8b2b2; /* Gentle Rose Pink */
+
+    /* Light Pink Shades */
+    --lightPink-1: #ffb7c5; /* Sakura Pink */
+    --lightPink-2: #ffc1cc; /* Very Pale Pink */
+    --lightPink-3: #ffced4; /* Baby Pink */
+    --lightPink-4: #ffdae4; /* Light Blush Pink */
+    --lightPink-5: #ff9eb2; /* Soft Pink */
+    --lightPink-6: #ffbcd9; /* Pink Lavender */
+    --lightPink-7: #ffadc9; /* Classic Pink */
+    --lightPink-8: #f7b2b7; /* Pale Carnation Pink */
+
+    /* Mid-Tone Pink Shades */
+    --midPink-1: #f48f9a; /* Tulip Pink */
+    --midPink-2: #f07d92; /* Light Coral Pink */
+    --midPink-3: #ec6c77; /* Coral Pink */
+    --midPink-4: #e67e85; /* Rose Pink */
+    --midPink-5: #f27e91; /* Warm Pink */
+    --midPink-6: #e78f8f; /* Blush Pink */
+    --midPink-7: #f5a3a1; /* Salmon Pink */
+
+    /* Dark Pink Shades */
+    --darkPink-1: #b28089; /* Dark Pink */
+    --darkPink-2: #d294aa; /* Dusty Pink */
+    --darkPink-3: #c8707e; /* Rose Pink */
+    --darkPink-4: #b35f77; /* Mauve Pink */
+    --darkPink-5: #a84d6e; /* Old Rose */
+    --darkPink-6: #9e4a5a; /* Darker Mauve Pink */
+    --darkPink-7: #8e3d4e; /* Deep Mauve */
+
+
+
+
+    /* Light Black Shades */
+    --lightBlack-1: #333333; /* Charcoal */
+    --lightBlack-2: #404040; /* Dark Gray */
+    --lightBlack-3: #2e2e2e; /* Onyx Gray */
+
+    /* Mid-Tone Black Shades */
+    --midBlack-1: #1a1a1a; /* Jet Black */
+    --midBlack-2: #262626; /* Very Dark Gray */
+    --midBlack-3: #212121; /* Gunmetal Gray */
+
+    /* Dark Black Shades */
+    --darkBlack-1: #000000; /* Pure Black */
+    --darkBlack-2: #111111; /* Deep Black */
+    --darkBlack-3: #0d0d0d; /* Absolute Black */
+
+
+
+
+    /* Dark White Shades */
+    --darkWhite-1: #bdbdbd; /* Dark Gray */
+    --darkWhite-2: #a6a6a6; /* Medium Gray */
+    --darkWhite-3: #8c8c8c; /* Slate Gray */
+    --darkWhite-4: #c0c0c0; /* Silver */
+    --darkWhite-5: #e0e0e0; /* Light Silver */
+
+
+
+
+    /* Light Purple Shades */
+    --lightPurple-1: #d8bfd8; /* Thistle */
+    --lightPurple-2: #d6a6d3; /* Lavender */
+    --lightPurple-3: #e0b0ff; /* Mauve */
+    --lightPurple-4: #da70d6; /* Orchid */
+    --lightPurple-5: #db7093; /* Pale Red Violet */
+
+    /* Purple Shades */
+    --purple-1: #9966cc; /* Amethyst */
+    --purple-2: #9370db; /* Medium Purple */
+    --purple-3: #6a5acd; /* Slate Blue */
+    --purple-4: #7b68ee; /* Medium Slate Blue */
+    --purple-5: #800080; /* Purple */
+
+    /* Dark Purple Shades */
+    --purple-1: #9932cc; /* Dark Orchid */
+    --purple-2: #7851a9; /* Royal Purple */
+    --purple-3: #663399; /* Rebecca Purple */
+    --purple-4: #9400d3; /* Dark Purple */
+    --purple-5: #4b0082; /* Indigo */
+}
+
+
+
+
+/* ===== ===== ===== ===== ===== GENERAL STYLES ===== ===== ===== ===== ===== */
+html, body {    
+    height: 100%;
+    margin: 0;
+
+    overflow: hidden;
+}
+
+body {
+    line-height: 1.6;
+
+    font-family: Arial, sans-serif;
+}
+
+
+
+
+/* ===== ===== ===== ===== ===== Light Mode (Default) ===== ===== ===== ===== ===== */
+.Main {
+    color: var(--lightBlack-1);
+    background-color: var(--midPink-1);
+
+    transition: color 0.5s, background-color 0.5s;
+}
+
+
+
+
+/* +++++ +++++ +++++ +++++ +++++ Searchbar Styles +++++ +++++ +++++ +++++ +++++ */
 .searchbar {
+    flex-grow: 1;
+    margin-right: 3vh;
+
     display: flex;
     align-items: center;
 }
@@ -6,21 +133,49 @@
 .searchbar input[type="text"] {
     width: 500px;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius: 15px;
+
+    color: var(--lightBlack-1);
+    border: 1px solid var(--darkBlack-1);
+    background-color: var(--darkWhite-5);
+    
+    transition: color 0.5s, border 0.5s, box-shadow 0.5s;
+}
+
+.searchbar input[type="text"]:focus {
+    box-shadow: 0 0 10px var(--darkPink-5);
+
+    transition: box-shadow 0.5s;
+}
+
+.searchbar_button {
+    margin-left: 2vh;
 }
 
 .searchbar button.searchbar_button {
-    background-image: url(../Assets/MagnifyingGlass.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: transparent;
     width: 30px;
     height: 30px;
     margin-left: 10px;
+
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s;
+
+    background-color: transparent;
+    transition: background-color 0.5s, transform 0.5s;
+}
+
+.searchbar button.searchbar_button:hover {
+    transform: scale(1.06);
+}
+
+
+
+
+/* +++++ +++++ +++++ +++++ +++++ Header Styles +++++ +++++ +++++ +++++ +++++ */
+.header {
+    background-color: var(--softWarmPink-1);
+
+    transition: background-color 0.5s;
 }
 
 .header .searchbar {
@@ -33,60 +188,142 @@
     margin-left: 10px;
 }
 
+.btn-link {
+    opacity: 1;
+
+    transition: opacity 0.5s;
+}
+
+.btn-link:hover {
+    opacity: 0.5;
+}
+
+
+
+
+/* +++++ +++++ +++++ +++++ +++++ Divider +++++ +++++ +++++ +++++ +++++ */
 .divider {
-    height: 4px;
-    background-color: #000;
-    margin: 0;
+    height: 2px;
+    border-radius: 2px;
+
+    background-color: var(--darkBlack-1);
+
+    transition: background-color 0.5s;
 }
 
+
+
+
+/* +++++ +++++ +++++ +++++ +++++ Main Content +++++ +++++ +++++ +++++ +++++ */
 .content {
-    height: calc(100vh - 150px);
-    overflow-y: scroll;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
 }
 
-.navbar-vertical {
-    height: 100%;
-    padding: 20px 0;
-}
 
+
+
+/* +++++ +++++ +++++ +++++ +++++ Product Cards +++++ +++++ +++++ +++++ +++++ */
 .products-column {
-    height: 100%;
-    overflow-y: auto;
+    flex: 1;
+    height: 80vh;
     padding: 20px;
-}
 
-.cart-column {
-    height: 100%;
     overflow-y: auto;
-    padding: 20px;
-    background-color: transparent;
 }
 
 .product-card {
-    background-color: #ffb7c5;
-    border-radius: 10px;
+    height: 250px;
     padding: 10px;
+    border-radius: 10px;
     margin-bottom: 15px;
+
+    display: flex;
     text-align: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: var(--midBlack-3);
+    background-color: var(--softWarmPink-1);
+    box-shadow: 0 4px 8px rgba(75, 0, 130, 0.2);
+
+    transition: color 0.5s, background-color 0.5s, transform 0.5s, box-shadow 0.5s;
+}
+
+.product-card:hover {
+    cursor: pointer;
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 16px rgba(75, 0, 130, 0.8);
+
+    transition: transform 0.5s, box-shadow 0.5s;
 }
 
 .product-image {
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
+    font-size: 20rem;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
     margin: 0 auto 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card .product-image {
+    flex-grow: 1;
+    margin-bottom: 10px;
+
+    background: none;
+}
+
+.product-card button {
+    padding: 10px 15px;
+    border-radius: 5px;
+    
+    border: none;
+    cursor: pointer;
+    margin-top: auto;
+
+    color: var(--lightBlack-1);
+    background-color: var(--darkPink-4);
+    
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.product-card button:hover {
+    background-color: var(--darkPink-7);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    transition: background-color 0.5s, box-shadow 0.5s;
+}
+
+
+
+
+/* +++++ +++++ +++++ +++++ +++++ Cart Styles +++++ +++++ +++++ +++++ +++++ */
+.cart-column {
+    height: 80vh;
+    padding: 20px;
+
+    overflow-y: auto;
+    
+    background-color: var(--softWarmPink-1);
+
+    transition: background-color 0.5s;
 }
 
 .cart-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
     padding: 5px;
+    margin-bottom: 10px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .cart-container {
@@ -94,6 +331,19 @@
     overflow-y: auto;
 }
 
+.Cart {
+    padding-bottom: 20px;
+}
+
+.TitleAndTrashcan {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+/* +++++ +++++ +++++ +++++ +++++ Cart Quantity Control Styles +++++ +++++ +++++ +++++ +++++ */
 .quantity-control {
     display: flex;
     align-items: center;
@@ -102,48 +352,44 @@
 .quantity-control button {
     width: 25px;
     height: 25px;
-    padding: 0;
-    font-size: 18px;
     line-height: 1;
+
+    color: var(--darkBlack-2);
+    background-color: transparent;
+    border: 1px solid var(--darkBlack-1);
+
+    transition: border 0.5s, color 0.5s;
 }
 
 .quantity-control input {
     width: 40px;
-    text-align: center;
     margin: 0 5px;
-}
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    appearance: none;
-    margin: 0;
-}
-
-input[type="number"] {
+    text-align: center;
     appearance: textfield;
+    
+    background-color: transparent;
+    color: var(--darkBlack);
+    border: 1px solid var(--darkBlack-1);
+
+    transition: background-color 0.5s, color 0.5s, border 0.5s;
 }
 
-.navbar-vertical {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0;
+.quantity-control button:hover {
+    color: var(--darkWhite-1);
+    background-color: var(--lightBlack-2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+    transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
 }
 
-.navbar-vertical .nav-link {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 15px;
-}
 
-.navbar-vertical .beauty {
-    display: block;
-    text-align: center;
-}
 
+
+/* +++++ +++++ +++++ +++++ +++++ Cart Button Styles +++++ +++++ +++++ +++++ +++++ */
 .button-container {
+    margin-top: 3vh;
+
     display: flex;
     justify-content: space-between;
 }
@@ -160,13 +406,128 @@ input[type="number"] {
     align-content: center;
 }
 
-.horizontal-navbar .nav-link:active {
-    background-color: #ffb7c5;
-    color: #fff;
+.delete-button {
+    border: none;
+    cursor: pointer;
+
+    background: none;
+}
+
+.delete-button img {
+    width: 40px;
+    height: 40px;
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+
+
+
+/* ----- ----- ----- ----- ----- Payment Buttons ----- ----- ----- ----- ----- */
+.payLaterBTN, .payNowBTN {
+    width: 50vh;
+}
+
+.payLaterBTN {
+    margin-right: 2vh;
+}
+
+
+
+
+/* ----- ----- ----- ----- ----- Popup Styles ----- ----- ----- ----- ----- */
+.payment-popup, .cash-popup {
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+
+    display: none;
+    position: fixed;
+
+    backdrop-filter: blur(20px);
+    background-color: transparent;
+    border: 2px solid var(--darkBlack-3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+    transition: border 0.5s, box-shadow 0.5s, backdrop-filter 0.5s;
+}
+
+.payment-popup-content, 
+.cash-popup-content {
+    text-align: center;
+
+    color: var(--darkBlack-1);
+
+    transition: color 0.5s;
+}
+
+.popup-button {
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    color: var(--darkBlack-1);
+    background-color: transparent;
+    border: 1px solid var(--darkBlack-1);
+
+    transition: background-color 0.5s, color 0.5s, border 0.5s;
+}
+
+.popup-button:hover {
+    background-color: var(--darkPink-4);
+
+    transition: background-color 0.5s;
+}
+
+
+
+
+/* ----- ----- ----- ----- ----- Category Buttons Styles ----- ----- ----- ----- ----- */
+.category-btn.active {
+    height: 48px;
+    border-radius: 10px 0 0 10px;
+}
+
+
+
+
+/* +++++ +++++ +++++ +++++ +++++ Products Styles +++++ +++++ +++++ +++++ +++++ */
+.btn-group .nav-link.active {
+    opacity: 1;
+
+    color: var(--darkBlack-3);
+    background-color: var(--darkPink-4);
+
+    transition: background-color 0.5s, color 0.5s;
+    
 }
 
 .dropdownBTN {
+    height: 48px;
+
     border: none;
+}
+
+.dropdownBTN:hover {
+    background-color: var(--darkPink-4);
+
+    transition: background-color 0.5s;
+}
+
+.dropdown-menu {
+    border: 2px;
+
+    background-color: var(--darkPink-4);
+
+    transition: background-color 0.5s;
 }
 
 .dropdown-item {
@@ -176,137 +537,160 @@ input[type="number"] {
 
 
 
-.product-card {
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align: center;
-    padding: 10px;
-    border-radius: 10px;
-}
 
-.product-card .product-image {
-    flex-grow: 1;
-    margin-bottom: 10px;
-    background: none;
-}
 
-.product-image {
-    width: 100px;
-    height: 100px;
-    display: block;
-    margin: 0 auto 10px;
-    object-fit: contain;
-}
 
-.product-image img {
-    margin: 10px;
-}
 
-.product-card button {
-    margin-top: auto;
+/* ===== ===== ===== ===== ===== Dark Mode ===== ===== ===== ===== ===== */
+body.dark-mode {
+    color: var(--softWarmPink-1);
+    background-color: var(--darkBlack-2);
+
+    transition: background-color 0.5s, color 0.5s;
 }
 
 
 
 
-.Cart {
-    padding-bottom: 20px;
-}
-
-.custom-tooltip {
-    --bs-tooltip-bg: var(--bd-violet-bg);
-    --bs-tooltip-color: var(--bs-white);
-}
-
-.btn-link {
-    padding: 0;
-}
-
-.btn-link:hover {
-    opacity: 0.5;
-}
-
-.delete-button {
-    border: none;
-    background: none;
-    cursor: pointer;
-    margin-top: 0;
-}
-
-.delete-button img {
-    width: 40px;
-    height: 40px;
-}
-
-.quantity-control button {
-    width: 25px;
-    height: 25px;
-    padding: 0;
-    font-size: 18px;
-    line-height: 1;
-    border: 1px solid #000;
-    background-color: transparent;
-    color: #000000;
-}
-
-.quantity-control button:hover {
-    background-color: #888888;
-    color: #fff;
+/* +++++ +++++ +++++ +++++ +++++ Searchbar Styles +++++ +++++ +++++ +++++ +++++ */
+body.dark-mode .searchbar input[type="text"] {
+    border-color: var(--darkPink-5);
+    
+    transition: border-color 0.5s;
 }
 
 
 
 
-.payment-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    width: 300px;
-    display: none;
+/* +++++ +++++ +++++ +++++ +++++ Header Styles +++++ +++++ +++++ +++++ +++++ */
+body.dark-mode .header {
+    background-color: var(--darkBlack-1);
+    
+    transition: background-color 0.5s;
 }
 
-.payment-popup-content {
-    text-align: center;
+body.dark-mode .btn-group .category-btn {
+    color: var(--softWarmPink-1);
+
+    transition: color 0.5s;
 }
 
 
 
 
-.logout-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: none;
+/* +++++ +++++ +++++ +++++ +++++ Divider +++++ +++++ +++++ +++++ +++++ */
+body.dark-mode .divider {
+    background-color: var(--softWarmPink-3);
+
+    transition: background-color 0.5s;
 }
 
-.logout-popup-content {
-    text-align: center;
+
+
+
+/* +++++ +++++ +++++ +++++ +++++ Product Cards +++++ +++++ +++++ +++++ +++++ */
+body.dark-mode .product-card {
+    color: var(--softWarmPink-1);
+    background-color: var(--darkBlack-1);
+    box-shadow: 0 4px 8px rgba(255, 183, 197, 0.2);
+
+    transition: background-color 0.5s, color 0.5s, box-shadow 0.5s, transform 0.5s;
 }
 
-.popup-button {
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
+body.dark-mode .product-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow: 0 8px 16px rgba(255, 183, 197, 0.5);
+
+    transition: transform 0.5s, box-shadow 0.5s;
 }
 
-.popup-button:hover {
-    background-color: #0056b3;
+body.dark-mode .product-image img {
+    filter: invert(1);
+
+    transition: filter 0.5s;
+}
+
+
+
+
+/* +++++ +++++ +++++ +++++ +++++ Cart Styles +++++ +++++ +++++ +++++ +++++ */
+body.dark-mode .cart-column {
+    background-color: var(--darkBlack-1);
+
+    transition: background-color 0.5s;
+}
+
+
+
+
+/* +++++ +++++ +++++ +++++ +++++ Cart Quantity Control Styles +++++ +++++ +++++ +++++ +++++ */
+body.dark-mode .quantity-control button {
+    color: var(--softWarmPink-1);
+    border-color: var(--softWarmPink-3);
+
+    transition: border-color 0.5s, color 0.5s;
+}
+
+body.dark-mode .quantity-control button:hover {
+    color: var(--lightBlack-1);
+    background-color: var(--darkPink-4);
+
+    transition: background-color 0.5s, color 0.5s;
+}
+
+body.dark-mode .quantity-control input {
+    color: var(--softWarmPink-1);
+    border: 1px solid var(--lightPink-1);
+
+    transition: border 0.5s, color 0.5s;
+}
+
+
+
+
+/* ----- ----- ----- ----- ----- Popup Styles ----- ----- ----- ----- ----- */
+body.dark-mode .payment-popup,
+body.dark-mode .cash-popup, 
+body.dark-mode {
+    border-color: var(--softWarmPink-1);
+
+    transition: border-color 0.5s;
+}
+
+body.dark-mode .payment-popup-content, 
+body.dark-mode .cash-popup-content, 
+body.dark-mode {
+    color: var(--lightPink-1);
+
+    transition: color 0.5s;
+}
+
+body.dark-mode .popup-button {
+    color: var(--lightPink-1);
+    border-color: var(--softWarmPink-1);
+
+    transition: color 0.5s, border-color 0.5s;
+}
+
+body.dark-mode .popup-button:hover {
+    background-color: var(--darkBlack-3);
+
+    transition: background-color 0.5s;
+}
+
+
+
+
+
+
+
+
+/* ===== ===== ===== ===== ===== Animations ===== ===== ===== ===== ===== */
+@keyframes shake {
+    0% { transform: rotate(0); }
+    25% { transform: rotate(-10deg); }
+    50% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0); }
 }
